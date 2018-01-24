@@ -23,27 +23,13 @@ class CVESingleParser(object):
                     references.append(t.text)
         except IndexError:
             print "no references"
-        data = [[cveId, descripition, len(references), references]]
+        data = [cveId, descripition, len(references), references]
 
-        f = open("cve.csv","a")
-        w = csv.writer(f)
-        w.writerows(data)
-        f.close()
+        #f = open("cve.csv","a")
+        #w = csv.writer(f)
+        #w.writerows(data)
+        #f.close()
+        return data
 
-p = CVESingleParser()
-p.parse("2017-7240")
-p.parse("2017-6334")
-p.parse("2017-6077")
-p.parse("2017-3881")
-p.parse("2016-6435")
-p.parse("2016-6433")
-p.parse("2014-9583")
-p.parse("2014-8243")
-p.parse("2014-1635")
-p.parse("2013-7030")
-p.parse("2013-3568")
-p.parse("2012-2765")
-p.parse("2011-3315")
-p.parse("2008-0403")
-
-
+#p = CVESingleParser()
+#print p.parse("2017-7240")

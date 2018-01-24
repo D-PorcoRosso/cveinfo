@@ -13,10 +13,10 @@ class CVEDetailSingleParser(object):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
         CVSS = soup.find('div', attrs={'class':'cvssbox'})
-        print CVSS.contents[0]
         vType = soup.find('span', attrs={'class':'vt_ec'})
-        print vType.contents[0]
-
-p = CVEDetailSingleParser()
-p.parse("2017-6334")
+        data = [CVSS.contents[0],vType.contents[0]]
+        return data
+        
+#p = CVEDetailSingleParser()
+#print p.parse("2017-6334")
 
