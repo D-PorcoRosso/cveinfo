@@ -11,6 +11,8 @@ class CVEDetailSingleParser(object):
         print cveId
         url = url + cveId
         response = requests.get(url)
+        if "Unknown CVE ID" in response.text:
+            return []
         soup = BeautifulSoup(response.text, 'lxml')
         CVSS = soup.find('div', attrs={'class':'cvssbox'})
         vType = soup.find('span', attrs={'class':'vt_ec'})
